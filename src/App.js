@@ -13,6 +13,7 @@ class App extends Component {
       <Router>
         <div>
           <Route exact path={process.env.PUBLIC_URL + "/"} component={Home} />
+          
           {/* <Route path="/about" component={About}/> */}
         </div>
       </Router>
