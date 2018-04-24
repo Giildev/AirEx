@@ -25,7 +25,16 @@ class Home extends Component {
 
   render() {
     return (
+
       <div>
+        <div className='header'>
+          <div className='btn btn--header'>
+            <div className='btn__menu'>
+            +
+            </div>
+          </div>
+          <div></div>
+        </div>
         <h1>{this.state.object}</h1>
       </div>
     );
