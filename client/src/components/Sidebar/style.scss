@@ -1,0 +1,35 @@
+aside{
+    ul {
+        list-style-type: none;
+    }
+    background-image: linear-gradient(232deg, #23cbfc 41%, #1783fa);
+    width: 25rem;
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 2.5rem 5rem;
+    display: grid;
+    .pic{
+        text-align: center;    
+        font-weight: bold;
+        img{
+            height: 10rem;
+            width: auto;
+            border-radius: 10rem;
+        }
+    }
+    .opts{
+        .opts--balance{
+            margin: 4rem 0;
+        }
+        li{
+            margin: 1.8rem 0;
+        }
+        li:last-child {
+            font-weight: bold;            
+        }
+    }
+}
+.off{
+    display: none;
+}
+  
