@@ -1,0 +1,25 @@
+aside {
+  background-image: linear-gradient(232deg, #23cbfc 41%, #1783fa);
+  width: 25rem;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 2.5rem 5rem;
+  display: grid; }
+  aside ul {
+    list-style-type: none; }
+  aside .pic {
+    text-align: center;
+    font-weight: bold; }
+    aside .pic img {
+      height: 10rem;
+      width: auto;
+      border-radius: 10rem; }
+  aside .opts .opts--balance {
+    margin: 4rem 0; }
+  aside .opts li {
+    margin: 1.8rem 0; }
+  aside .opts li:last-child {
+    font-weight: bold; }
+
+.off {
+  display: none; }
