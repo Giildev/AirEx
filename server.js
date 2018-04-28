@@ -16,6 +16,7 @@ var mongoose   = require('mongoose');
 mongoose.connect('mongodb://localhost/airexdb'); // connect to our database
 
 var Coin = require('./src/models/coin');
+var Trade = require('./src/models/trade');
 
 // ROUTES FOR OUR API
 
@@ -34,7 +35,7 @@ router.get('/', function(req, res) {
 /*   
 */
 // more routes for our API will happen here
-
+//Coins Routes API
 router.route('/coins')
 
     .post(function(req, res) {
@@ -104,7 +105,66 @@ router.route('/coins')
       });
     });
 
+//Trade Routes API
+router.route('/trades')
 
+    .get(function(req, res) {
+        Trade.find(function(err, trades) {
+            if (err)
+                res.send(err);
+
+            res.json(trades);
+        });
+    })
+
+    .post(function(req, res) {
+      
+        var trade = new Trade;
+        trade.userTrader = req.body.userTrader;
+        trade.tradeType = req.body.tradeType;
+        trade.coinToChange = req.body.coinToChange;
+        trade.mount = req.body.mount;
+        trade.coinToRecive = req.body.coinToRecive;
+        trade.userTrading = req.body.userTrading;
+        trade.status = req.body.status;
+        trade.description = req.body.description;
+
+        trade.save(function(err) {
+            if (err)
+                res.send(err);
+
+            res.json({ message: 'trade created!', trade });
+        });
+
+    });
+
+    router.get('/trade/detail/:trade_id',function(req, res) {
+        Trade.findById(req.params.trade_id, function(err, trade)  {
+            if (err)
+                res.send(err);
+  
+            res.json(trade);
+        });
+    });
+
+    router.get('/trade/confirm/:trade_id', function(req, res) {
+       
+        Trade.findById(req.params.trade_id, function(err, trade) {
+
+            if (err)
+                res.send(err);
+    
+            trade.status = 'finish';
+
+            trade.save(function(err) {
+                if (err)
+                    res.send(err);
+
+                res.json({ message: 'finishits trade successfully', trade });
+            });
+    
+        });
+    });
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
