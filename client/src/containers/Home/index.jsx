@@ -4,14 +4,12 @@ import axios from "axios";
 
 // Components & Containers
 import "./style.css";
-import Header from "../../components/Header";
+
 class Home extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      object: ""
-    };
+    this.state = {};
   }
 
   componentWillMount() {
@@ -25,8 +23,8 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
-        <Header />
+      <div className="content__container">
+        <p>WIP</p>
       </div>
     );
   }

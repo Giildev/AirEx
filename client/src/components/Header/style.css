@@ -1,10 +1,39 @@
 .header {
   display: flex;
   height: 8rem;
-  box-shadow: 0px 3px 35px 0 rgba(59, 59, 59, 0.1);
+  box-shadow: 0 0.3rem 3.5rem 0 rgba(59, 59, 59, 0.1);
   padding: 2rem;
   justify-content: space-between; }
 
 .btn__menu img {
   height: 4rem;
   width: auto; }
+
+.hamburger .line {
+  width: 4rem;
+  height: 0.4rem;
+  background-color: #20b5fc;
+  display: block;
+  margin: 0.8rem auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; }
+
+.hamburger:hover {
+  cursor: pointer; }
+
+/* ONE */
+#hamburger-1.is-active .line:nth-child(2) {
+  opacity: 0; }
+
+#hamburger-1.is-active .line:nth-child(1) {
+  -webkit-transform: translateY(1.2rem) rotate(45deg);
+  -ms-transform: translateY(1.2rem) rotate(45deg);
+  -o-transform: translateY(1.2rem) rotate(45deg);
+  transform: translateY(1.2rem) rotate(45deg); }
+
+#hamburger-1.is-active .line:nth-child(3) {
+  -webkit-transform: translateY(-1.2rem) rotate(-45deg);
+  -ms-transform: translateY(-1.2rem) rotate(-45deg);
+  -o-transform: translateY(-1.2rem) rotate(-45deg);
+  transform: translateY(-1.2rem) rotate(-45deg); }

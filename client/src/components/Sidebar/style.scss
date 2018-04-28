@@ -1,35 +1,70 @@
-aside{
-    ul {
-        list-style-type: none;
-    }
+.avatar {
+  // text-align: center;
+  font-weight: bold;
+  &__prop {
+    height: 10rem;
+    width: auto;
+    border-radius: 10rem;
+  }
+}
+
+.menu {
+  width: 25rem;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  &__container {
+    height: 100%;
     background-image: linear-gradient(232deg, #23cbfc 41%, #1783fa);
-    width: 25rem;
     color: #fff;
     font-size: 1.5rem;
     padding: 2.5rem 5rem;
-    display: grid;
-    .pic{
-        text-align: center;    
-        font-weight: bold;
-        img{
-            height: 10rem;
-            width: auto;
-            border-radius: 10rem;
-        }
+    transition: all 0.2s;
+    opacity: 1;
+    &__off {
+      transform: translateX(-25rem);
+      opacity: 0;
     }
-    .opts{
-        .opts--balance{
-            margin: 4rem 0;
-        }
-        li{
-            margin: 1.8rem 0;
-        }
-        li:last-child {
-            font-weight: bold;            
-        }
+  }
+  &__avatar {
+    font-weight: bold;
+    &__prop {
+      height: 10rem;
+      width: auto;
+      border-radius: 10rem;
     }
+  }
+  &__balance {
+    margin: 4rem 0;
+  }
+  &__trades {
+    margin: 1.8rem 0;
+  }
+  &__profile {
+    margin: 1.8rem 0;
+  }
+  &__airtm {
+    margin: 1.8rem 0;
+  }
+  &__help {
+    margin: 1.8rem 0;
+  }
+  &__logout {
+    margin: 1.8rem 0;
+  }
+
+  &::last-child {
+    font-weight: bold;
+  }
 }
-.off{
-    display: none;
+
+.link {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s;
+  &:hover {
+    color: darken(#fff, 25%);
+    text-decoration: underline;
+  }
 }
-  

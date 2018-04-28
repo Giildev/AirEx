@@ -1,12 +1,16 @@
-const express = require('express');
+const express = require("express");
+const bodyParser = require("body-parser");
 
 const app = express();
 const port = process.env.PORT || 4000;
 
-app.get('/api/hello', (req, res) => {
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.get("/api/hello", (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  res.send({ object: 'Hello from Node.js' });
+  res.send({ object: "Hello from Node.js" });
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

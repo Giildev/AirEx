@@ -1,51 +1,42 @@
 // Dependencies
-import React from 'react'
+import React, { Component } from "react";
 
 // Components & Containers
 import "./style.css";
-import Sidebar from "../Sidebar";
-export default class Header extends React.Component {
+import Logo from "../../images/Airtm01.png";
+import Sidebar from "../Sidebar/";
+
+export default class Header extends Component {
   constructor() {
     super();
     this.state = {
-      toggle: false,
+      menuToggle: false
     };
   }
+
   render() {
     return (
       <div>
-        <div className='header'>
-          <div className='btn btn--header'>
-            <div
-              className='btn__menu'
-              onClick = { () => {
-                this.setState({toggle: !this.state.toggle})
-              } }
-            >
-              <img
-                src={
-                  this.state.toggle ?
-                    require('../../images/cancel.png')
-                    :
-                    require('../../images/menu.png')                  
-                }
-                alt='Header button for menu'
-              />
-            </div>
+        <div className="header">
+          <div
+            id="hamburger-1"
+            onClick={() => {
+              this.setState({ menuToggle: !this.state.menuToggle });
+            }}
+            className={`hamburger ${this.state.menuToggle ? "is-active" : ""}`}
+          >
+            <span className="line" />
+            <span className="line" />
+            <span className="line" />
           </div>
-          <div className='btn btn--header'>
-            <div className='btn__menu'>
-              <img
-                src={ require('../../images/Airtm01.png') } 
-                alt=''
-              />
+          <div className="btn btn--header">
+            <div className="btn__menu">
+              <img src={Logo} alt="Logo" />
             </div>
           </div>
         </div>
-        <Sidebar
-          toggle={this.state.toggle}
-        />
+        <Sidebar toggle={this.state.menuToggle} />
       </div>
-    )
+    );
   }
 }
