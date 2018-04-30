@@ -1,0 +1,49 @@
+.ListTrade {
+  font-size: 1.25rem;
+  color: #273d51;
+  text-align: center; }
+
+.ListTrade__Tab {
+  margin-bottom: 5rem;
+  font-weight: bold;
+  width: 25rem;
+  background-color: #ffffff;
+  box-shadow: 0px 3px 10px 0 rgba(108, 108, 108, 0.1);
+  border: none; }
+
+.ListTrade__Entry {
+  margin-bottom: 2.5rem; }
+
+.ListTrade__Badge {
+  word-spacing: 0.625rem; }
+
+.ListTrade__Green {
+  color: #29ce41; }
+
+.ListTrade__Action {
+  text-decoration: underline; }
+
+.ListTrade__Btn {
+  width: 5rem;
+  height: 2rem;
+  mix-blend-mode: undefined;
+  background-color: #ffffff;
+  background-color: var(--white);
+  box-shadow: 0px 3px 10px 0 rgba(108, 108, 108, 0.1);
+  border: none;
+  color: #20b5fc;
+  margin-left: 2.5rem;
+  font-size: 0.9rem; }
+
+.ListTrade__User {
+  height: 4rem;
+  margin-right: 1.5rem;
+  margin-top: 0rem;
+  vertical-align: middle; }
+
+.ListTrade--Bold {
+  font-weight: bold; }
+
+.ListTrade--Selected {
+  border: solid 4px #20b5fc;
+  color: #20b5fc; }
