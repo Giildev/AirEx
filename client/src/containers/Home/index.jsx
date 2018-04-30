@@ -4,7 +4,9 @@ import axios from "axios";
 
 // Components & Containers
 import "./style.css";
-
+import Header from "../../components/Header";
+import ListCoin from "../../components/ListCoin";
+import ListTrades from "../../components/ListTrades";
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -25,8 +27,9 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="content__container">
-        <p>WIP - {this.state.object}</p>
+      <div>
+        <ListCoin />
+        <ListTrades />
       </div>
     );
   }

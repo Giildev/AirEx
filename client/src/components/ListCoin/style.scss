@@ -1,0 +1,22 @@
+.coinSelector {
+  position: relative;
+  margin: 8rem 0;
+  font-size: 1.5rem;
+  text-align: center;
+  &__Select {
+    font-size: 1.25rem;
+    width: 50rem;
+    height: 2.2rem;
+    mix-blend-mode: undefined;
+    background-color: #ffffff;
+    background-color: var(--white);
+    box-shadow: 0px 3px 10px 0 rgba(108, 108, 108, 0.1);
+    border: none;
+    appearance: none;
+    padding: 2px 2px 2px 2px;
+    border: none;
+    background: transparent
+      url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png")
+      no-repeat 47.5rem center;
+  }
+}
