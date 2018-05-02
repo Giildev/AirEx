@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 // Components & Containers
 import './App.css';
 import Home from "./containers/Home/";
-
+import Login from "./containers/Login";
 
 class App extends Component {
   render() {
@@ -14,7 +14,7 @@ class App extends Component {
         <div>
           <Route exact path={process.env.PUBLIC_URL + "/"} component={Home} />
           
-          {/* <Route path="/about" component={About}/> */}
+          <Route path="/login" component={Login}/>
         </div>
       </Router>
     );
