@@ -1,5 +1,6 @@
 // Dependencies
 import React, { Component } from "react";
+import Select from "react-select";
 
 // Components & Containers
 import "./style.css";
@@ -11,20 +12,20 @@ export default class ListCoin extends Component {
     this.state = {
       options: [
         {
-          symbol: "BTC",
-          name: "Bitcoin"
+          value: "BTC",
+          label: "Bitcoin"
         },
         {
-          symbol: "ETH",
-          name: "Ethereum"
+          value: "ETH",
+          label: "Ethereum"
         },
         {
-          symbol: "XRP",
-          name: "Ripple"
+          value: "XRP",
+          label: "Ripple"
         },
         {
-          symbol: "LTC",
-          name: "Litecoin"
+          value: "LTC",
+          label: "Litecoin"
         }
       ]
     };
@@ -32,14 +33,12 @@ export default class ListCoin extends Component {
 
   render() {
     return (
-      <div className="coinSelector">
-        <select className="coinSelector__Select" name="ListCoin">
-          {this.state.options.map((option, index) => (
-            <option value={option.symbol} key={index}>
-              {option.name}
-            </option>
-          ))}
-        </select>
+      <div>
+        <Select
+          className="coinSelector"
+          placeholder="Select Coin"
+          options={this.state.options}
+        />
       </div>
     );
   }
