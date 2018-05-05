@@ -49,6 +49,7 @@ mongoose.connect('mongodb://localhost/airexdb'); // connect to our database
 
 var Coin = require('./src/models/coin');
 var User = require('./src/models/user');
+var Trade = require('./src/models/trade');
 
 //----------------------------- Login , Logout and Register
 /*
@@ -92,6 +93,7 @@ router.get('/usuarioInfo', passportConfig.estaAutenticado, (req, res) => {
 })
 
 //-------------------------- Crud Coins
+//Coins Routes API
 router.route('/coins')
 
     if (!coin.name || coin.name.length < 2) {
@@ -148,11 +150,70 @@ router
       },
       function(err, bear) {
         if (err) res.send(err);
+//Trade Routes API
+router.route('/trades')
 
         res.json({ message: "Successfully deleted" });
       }
     );
   });
+    .get(function(req, res) {
+        Trade.find(function(err, trades) {
+            if (err)
+                res.send(err);
+
+            res.json(trades);
+        });
+    })
+
+    .post(function(req, res) {
+      
+        var trade = new Trade;
+        trade.userTrader = req.body.userTrader;
+        trade.tradeType = req.body.tradeType;
+        trade.coinToChange = req.body.coinToChange;
+        trade.mount = req.body.mount;
+        trade.coinToRecive = req.body.coinToRecive;
+        trade.userTrading = req.body.userTrading;
+        trade.status = req.body.status;
+        trade.description = req.body.description;
+
+        trade.save(function(err) {
+            if (err)
+                res.send(err);
+
+            res.json({ message: 'trade created!', trade });
+        });
+
+    });
+
+    router.get('/trade/detail/:trade_id',function(req, res) {
+        Trade.findById(req.params.trade_id, function(err, trade)  {
+            if (err)
+                res.send(err);
+  
+            res.json(trade);
+        });
+    });
+
+    router.get('/trade/confirm/:trade_id', function(req, res) {
+       
+        Trade.findById(req.params.trade_id, function(err, trade) {
+
+            if (err)
+                res.send(err);
+    
+            trade.status = 'finish';
+
+            trade.save(function(err) {
+                if (err)
+                    res.send(err);
+
+                res.json({ message: 'finishits trade successfully', trade });
+            });
+    
+        });
+    });
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
