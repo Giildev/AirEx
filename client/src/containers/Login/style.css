@@ -1,0 +1,39 @@
+.Login {
+  padding: 13rem 9rem;
+  text-align: center; }
+
+.Login__Logo {
+  width: 7rem; }
+
+.Login__Title {
+  float: left;
+  color: #20b5fc;
+  font-size: 2.5rem; }
+
+.Login__Form {
+  width: 50rem;
+  position: relative;
+  margin: 0 auto; }
+
+.Login__Input {
+  margin-top: 2rem;
+  width: 100%;
+  height: 3rem; }
+
+.Login__Forgot {
+  margin-top: 2rem;
+  font-size: 1.25rem;
+  color: #273d51; }
+
+.Login__Submit {
+  margin-top: 2rem;
+  color: #20b5fc;
+  box-shadow: 0px 3px 10px 0 rgba(108, 108, 108, 0.1);
+  background-color: #fff;
+  font-weight: bold;
+  font-size: 1.25rem;
+  border: none;
+  padding: 0.5rem 2.5rem; }
+
+.Login--Link {
+  color: #273d51; }
