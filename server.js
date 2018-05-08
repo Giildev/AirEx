@@ -1,20 +1,66 @@
 const express = require("express");
 const app = express();
-const path = require("path");
-const bodyParser = require("body-parser");
+const path = require('path');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const passport = require('passport');
+const passportConfig = require('./src/config/passport');
+const MongoStore = require('connect-mongo')(session);
+const mongoose = require('mongoose');
+
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
+
 const port = process.env.PORT || 4000;
 
 //DATA BASE CONNECTION
-const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/airexdb"); // connect to our database
+// DB connection
+const MONGO_URL = "mongodb://localhost/airexdb";
+mongoose.Promise = global.Promise;
+mongoose.connect(MONGO_URL);
 
-const Coin = require("./coin");
+mongoose.connection.on('error', (err) => {
+    throw err; 
+    process.exit(1);
+})
 
+
+app.use(session({
+    secret: 'djhxcvxfgshjfgjhgsjhfgakjeauytsdfy', // a secret key you can write your own 
+    resave: true,
+    saveUninitialized: true, 
+    store: new MongoStore({
+        url:MONGO_URL,
+        autoReconnect:true
+    })
+  }));
+
+// DB connection end
+/*
+var mongoose   = require('mongoose');
+mongoose.connect('mongodb://localhost/airexdb'); // connect to our database
+*/
+
+var Coin = require('./src/models/coin');
+var User = require('./src/models/user');
+
+//----------------------------- Login , Logout and Register
+/*
+const userController = require('./src/controller/user');
+
+app.post('/signup',userController.postSignup);
+app.post('/login',userController.postLogin);
+app.get('logout', passportConfig.estaAutenticado ,userController.logout);
+app.get('/usuarioInfo', passportConfig.estaAutenticado, (req, res) => {
+    res.json(req.user);
+})
+*/
 // ROUTES FOR OUR API
 
 const router = express.Router();
@@ -25,20 +71,28 @@ router.use(function(req, res, next) {
   next(); // make sure we go to the next routes and don't stop here
 });
 
-router.get("/", function(req, res) {
-  res.json({ message: "hooray! welcome to our api!" });
+
+router.get('/', function(req, res) {
+    //req.session.cuenta = req.session.cuenta ? req.session.cuenta + 1: 1;  
+    //res.send(`Hola! has visto esta pagina: ${req.session.cuenta}`);
+    res.json({ message: 'hooray! welcome to our api!' });
 });
 /*   
 */
 // more routes for our API will happen here
 
-router
-  .route("/coins")
-  .post(function(req, res) {
-    console.log(req.body);
-    const coin = new Coin();
-    coin.name = req.body.name;
-    coin.imgUrl = req.body.imgUrl;
+//----------------------------- Login , Logout and Register
+const userController = require('./src/controller/user');
+
+router.post('/signup',userController.postSignup);
+router.post('/login',userController.postLogin);
+router.post('/logout:user_id', passportConfig.estaAutenticado ,userController.logout);
+router.get('/usuarioInfo', passportConfig.estaAutenticado, (req, res) => {
+    res.json(req.user);
+})
+
+//-------------------------- Crud Coins
+router.route('/coins')
 
     if (!coin.name || coin.name.length < 2) {
       // name must be a string between 2 and 50
