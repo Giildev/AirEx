@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // Components & Containers
 import "./App.css";
-import Home from "./containers/Home/";
+import Header from "./components/Header";
+import Home from "./containers/Home";
 import Login from "./containers/Login";
 
 class App extends Component {
@@ -14,8 +15,11 @@ class App extends Component {
         <div>
           <Header />
           <Route exact path={process.env.PUBLIC_URL + "/"} component={Home} />
-          
-          <Route path="/login" component={Login}/>
+          <Route
+            exact
+            path={process.env.PUBLIC_URL + "/login"}
+            component={Login}
+          />
         </div>
       </Router>
     );
