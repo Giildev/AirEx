@@ -187,6 +187,15 @@ router.route('/trades')
 
     });
 
+    router.get('/trades/actives',function(req, res) {
+        Trade.find({status: 'active'},function(err, trades) {
+            if (err)
+                res.send(err);
+
+            res.json(trades);
+        });
+    })
+
     router.get('/trade/detail/:trade_id',function(req, res) {
         Trade.findById(req.params.trade_id, function(err, trade)  {
             if (err)
