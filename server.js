@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const bodyParser = require("body-parser");
+const jwt = require('jsonwebtoken');
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const Coin = require("./models/coin");
@@ -10,7 +11,6 @@ const Trade = require("./models/trade");
 const cors = require("cors");
 const bcrypt = require("bcrypt-nodejs");
 const router = express.Router();
-
 const port = process.env.PORT || 4000;
 
 app.use(cors());
@@ -47,8 +47,9 @@ router.post("/signup", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
+  
+  const token = jwt.sign({ foo: 'bar' }, 'shhhhh');
   const { email, password } = req.body;
-  console.log(req.body);
   const query = User.findOne({ email: email });
   query.select("email password");
   query.exec((err, user) => {
@@ -58,10 +59,17 @@ router.post("/login", (req, res) => {
 
         if (err) throw err;
         if (isMatch) {
+          
+          user.token = token;
+          user.save(err => {
+            if (err) res.send(err);
+          });
+
           const credentials = {
             email: email,
             password: user.password,
-            role: user.role
+            role: user.role,
+            token: user.token
           };
           res.send(JSON.stringify(credentials));
           console.log("Log in Success");
@@ -75,8 +83,19 @@ router.post("/login", (req, res) => {
   });
 });
 
-router.post("/logout", (req, res) => {
-  console.log("object");
+router.post("/logout/:userId", (req, res) => {
+  User.findById(req.params.userId, (err, user) => {
+    if (!err) {
+      user.token = '';
+      user.save(err => {
+        if (err) res.send(err);
+        res.send('User is log out')
+      });
+    } 
+    else {
+      res.send(err);
+    }
+  });
 });
 
 // Coin
