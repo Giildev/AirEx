@@ -1,12 +1,12 @@
 // Dependencies
 import React, { Component } from "react";
-import axios from "axios";
+// import axios from "axios";
 
 // Components & Containers
 import "./style.css";
-import logo from "../../images/Airtmlogo.png"
+import logo from "../../images/Airtmlogo.png";
 
-class Login extends Component {
+class login extends Component {
   constructor(props) {
     super(props);
 
@@ -17,27 +17,27 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="Login">
-        <h1 className="Login__Title">Login</h1>
-        <img className="Login__Logo" src={ logo } alt="Logo"/>
-        <div className="Login__Form">
+      <div className="content__container login">
+        <img className="login__logo" src={logo} alt="logo" />
+        <h1 className="login__title">Login</h1>
+        <div className="login__form">
+          <input className="login__input" placeholder="Email" type="email" />
           <input
-            className="Login__Input"
-            placeholder="Email"
-            type="email"
-          />
-          <input
-            className="Login__Input"
+            className="login__input"
             placeholder="Password"
             type="password"
           />
-          <p className="Login__Forgot">Forgot your password? Recover it <a className="Login--Link" href="#" >here</a></p>
-          <button className="Login__Submit">Log in</button>
+          <span className="login__forgot">
+            Forgot your password? Recover it{" "}
+            <a className="login--Link" href="/forgot">
+              here
+            </a>
+          </span>
+          <button className="login__submit">Enter</button>
         </div>
-
       </div>
     );
   }
 }
 
-export default Login;
+export default login;
