@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const bodyParser = require("body-parser");
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const Coin = require("./models/coin");
@@ -33,13 +33,12 @@ mongoose.connection.on("error", err => {
 router.post("/signup", (req, res) => {
   const user = new User();
 
-  
   user.name = req.body.name;
   user.lastName = req.body.lastName;
   user.email = req.body.email;
   user.phone = req.body.phone;
   user.password = req.body.password;
-  
+
   user.save(err => {
     if (err) res.send(err);
     res.send({ message: "User created!", user });
@@ -47,19 +46,15 @@ router.post("/signup", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
-  
-  const token = jwt.sign({ foo: 'bar' }, 'shhhhh');
+  const token = jwt.sign({ foo: "bar" }, "shhhhh");
   const { email, password } = req.body;
   const query = User.findOne({ email: email });
   query.select("email password");
   query.exec((err, user) => {
     if (user) {
-      
-      user.comparePassword(password, function(err, isMatch) {
-
+      user.comparePassword(password, (err, isMatch) => {
         if (err) throw err;
         if (isMatch) {
-          
           user.token = token;
           user.save(err => {
             if (err) res.send(err);
@@ -77,7 +72,7 @@ router.post("/login", (req, res) => {
           console.log("Incorrect password!");
         }
       });
-    }else{
+    } else {
       console.log("This user doesn't exists");
     }
   });
@@ -86,13 +81,12 @@ router.post("/login", (req, res) => {
 router.post("/logout/:userId", (req, res) => {
   User.findById(req.params.userId, (err, user) => {
     if (!err) {
-      user.token = '';
+      user.token = "";
       user.save(err => {
         if (err) res.send(err);
-        res.send('User is log out')
+        res.send("User is log out");
       });
-    } 
-    else {
+    } else {
       res.send(err);
     }
   });
