@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import Home from "./containers/Home";
 import Login from "./containers/Login";
 import Profile from "./containers/Profile";
+import EditProfile from "./containers/EditProfile";
 
 class App extends Component {
   render() {
@@ -25,6 +26,11 @@ class App extends Component {
             exact
             path={process.env.PUBLIC_URL + "/profile"}
             component={Profile}
+          />
+          <Route
+            exact
+            path={process.env.PUBLIC_URL + "/editprofile"}
+            component={EditProfile}
           />
         </div>
       </Router>
