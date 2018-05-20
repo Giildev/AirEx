@@ -1,0 +1,44 @@
+.review {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 3.75rem;
+  width: 36.25rem; }
+  .review__title {
+    color: #20b5fc;
+    border-bottom: 2px solid #20b5fc;
+    font-size: 2.75rem;
+    width: 29.125rem; }
+  .review__Upvote {
+    color: #7fe28d;
+    font-weight: bold; }
+  .review__Downvote {
+    color: #fa3163;
+    font-weight: bold; }
+  .review__badge {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.2rem;
+    height: 15rem;
+    overflow-y: scroll;
+    margin-bottom: 3.75rem; }
+    .review__badge * {
+      padding-left: .4rem; }
+    .review__badge__entry {
+      display: flex;
+      flex-direction: column;
+      height: 10.625rem;
+      margin: 1.25rem 0; }
+      .review__badge__entry__name {
+        text-decoration: none;
+        color: #273d51;
+        text-decoration: underline; }
+        .review__badge__entry__name:hover {
+          text-decoration: underline; }
+        .review__badge__entry__name:visited {
+          color: inherit; }
+      .review__badge__entry__typeOfTrade {
+        text-decoration: underline; }
+      .review__badge__entry__currencyToTrade {
+        color: #273d51; }

@@ -1,0 +1,23 @@
+.profileData {
+  padding: 8.4rem 13.75rem;
+  font-size: 1.5rem;
+  color: #273d51; }
+  .profileData__avatar {
+    text-align: center; }
+    .profileData__avatar__prop {
+      height: 10rem;
+      width: auto;
+      border-radius: 10rem; }
+    .profileData__avatar__percentage {
+      color: #7fe28d; }
+  .profileData__list {
+    padding: 0.625rem 0;
+    text-align: center; }
+    .profileData__list__entry {
+      list-style-type: none;
+      margin: 2.2rem 0; }
+  .profileData__edit {
+    text-decoration: underline;
+    font-weight: bolder;
+    text-align: center;
+    font-size: 1.4rem; }

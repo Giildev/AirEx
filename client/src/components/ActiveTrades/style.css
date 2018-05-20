@@ -1,0 +1,40 @@
+.activeTrade {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 7.5rem;
+  width: 29.125rem; }
+  .activeTrade__title {
+    color: #20b5fc;
+    border-bottom: 2px solid #20b5fc;
+    margin-bottom: 2rem;
+    font-size: 2.75rem; }
+  .activeTrade__Green {
+    color: #7fe28d; }
+  .activeTrade__badge {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.2rem;
+    height: 15rem;
+    overflow-y: scroll; }
+    .activeTrade__badge * {
+      padding-left: .4rem; }
+    .activeTrade__badge__entry {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 2px solid #d4d8dc;
+      padding: 1.25rem 0; }
+      .activeTrade__badge__entry__name {
+        text-decoration: none;
+        color: inherit; }
+        .activeTrade__badge__entry__name:hover {
+          text-decoration: underline; }
+        .activeTrade__badge__entry__name:visited {
+          color: inherit; }
+      .activeTrade__badge__entry__typeOfTrade {
+        text-decoration: underline; }
+      .activeTrade__badge__entry__currencyToTrade {
+        font-weight: bold;
+        color: #000; }
