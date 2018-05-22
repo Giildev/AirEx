@@ -1,0 +1,56 @@
+.createUserForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 17rem; }
+  .createUserForm__title {
+    color: #20b5fc;
+    text-align: center;
+    font-size: 3rem; }
+  .createUserForm__form {
+    width: 100%;
+    text-align: center; }
+    .createUserForm__form__input {
+      width: 100%;
+      margin: 1.25rem 0;
+      border: none;
+      background-color: #ffffff;
+      background-color: var(--white);
+      box-shadow: 0px 3px 10px 0 rgba(108, 108, 108, 0.1);
+      padding: 1.2rem 2.8rem;
+      color: #7d8b97; }
+      .createUserForm__form__input--submit {
+        box-shadow: 0px 3px 10px 0 rgba(108, 108, 108, 0.1);
+        border: none;
+        background-color: #20b5fc;
+        color: #ffffff;
+        padding: 1rem 3.125rem; }
+  .createUserForm__Green {
+    color: #7fe28d; }
+  .createUserForm__badge {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.2rem;
+    height: 15rem;
+    overflow-y: scroll; }
+    .createUserForm__badge * {
+      padding-left: .4rem; }
+    .createUserForm__badge__entry {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 2px solid #d4d8dc;
+      padding: 1.25rem 0; }
+      .createUserForm__badge__entry__name {
+        text-decoration: none;
+        color: inherit; }
+        .createUserForm__badge__entry__name:hover {
+          text-decoration: underline; }
+        .createUserForm__badge__entry__name:visited {
+          color: inherit; }
+      .createUserForm__badge__entry__typeOfTrade {
+        text-decoration: underline; }
+      .createUserForm__badge__entry__currencyToTrade {
+        font-weight: bold;
+        color: #000; }

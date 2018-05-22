@@ -1,12 +1,11 @@
 // Dependencies
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import Camera from "../../images/camera.png";
 
 // Components & Containers
 import "./style.css";
 
-export default class ActiveTrades extends Component {
+export default class EditProfile extends Component {
   render() {
     return (
       <div className="editProfileForm">
