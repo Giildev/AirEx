@@ -5,6 +5,8 @@ const Schema = mongoose.Schema;
 var UserSchema = new Schema(
   {
     name: { type: String, required: true },
+    lastName: { type: String },
+    phone: { type: String },
     password: { type: String, required: true },
     email: { type: String, unique: true, lowercase: true, required: true },
     token: { type: String }
@@ -28,10 +30,14 @@ UserSchema.pre("save", next => {
     bcrypt.hash(user.password, salt, (err, hash) => {
       if (err) return next(err);
 
-      // override the cleartext password with the hashed one
-      user.password = hash;
-      next();
-    });
+      // hash the password along with our new salt
+      bcrypt.hash(user.password, salt, function(err, hash) {
+          if (err) return next(err);
+
+          // override the cleartext password with the hashed one
+          user.password = hash;
+          next();
+      });
   });
 });
 

@@ -78,6 +78,40 @@ router.post("/login", (req, res) => {
   });
 });
 
+router.get("/profile/:userId", (req, res) => {
+  User.findById(req.params.userId, (err, user) => {
+    if(!err) {
+      res.send(user);
+    }
+    else{
+      console.log("User not found");
+    }
+  });
+});
+
+router.put("/user/edit/:userId", (req, res) => {
+  User.findById(req.params.userId, (err, user) => {
+    if(!err) {
+      
+      user.name = req.body.name;
+      user.lastName = req.body.lastName;
+      user.email = req.body.email;
+      user.phone = req.body.phone;
+      user.password = req.body.password;
+
+      user.save(err => {
+        if (err) res.send(err);
+        res.send({ message: "updated user!", user });
+      });
+
+    }
+    else{
+      console.log("User not found");
+    }
+  });
+});
+
+
 router.post("/logout/:userId", (req, res) => {
   User.findById(req.params.userId, (err, user) => {
     if (!err) {
