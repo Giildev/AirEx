@@ -1,0 +1,6 @@
+.editProfile {
+  display: flex;
+  justify-content: center; }
+  .editProfile__center {
+    width: 51.5vw;
+    height: 100%; }

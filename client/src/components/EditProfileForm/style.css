@@ -1,0 +1,80 @@
+.editProfileForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 7.5rem; }
+  .editProfileForm__avatar {
+    text-decoration: underline;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 10rem;
+    width: 10rem;
+    border-radius: 10rem;
+    margin: 0 auto;
+    background-image: url(../../images/johndoe.jpg);
+    background-size: 10rem;
+    text-align: center;
+    color: rgba(255, 255, 255, 0);
+    transition: .2s; }
+    .editProfileForm__avatar__prop {
+      height: 2.5rem;
+      width: 2.7rem;
+      margin: 0 auto;
+      display: none; }
+    .editProfileForm__avatar * {
+      display: none; }
+    .editProfileForm__avatar:hover {
+      background: linear-gradient(rgba(125, 139, 151, 0.6), rgba(125, 139, 151, 0.6)), url(../../images/johndoe.jpg);
+      background-size: 10rem;
+      color: white; }
+      .editProfileForm__avatar:hover * {
+        display: inline; }
+  .editProfileForm__form {
+    width: 100%;
+    text-align: center; }
+    .editProfileForm__form__input {
+      width: 100%;
+      margin: 1.25rem 0;
+      border: none;
+      background-color: #ffffff;
+      background-color: var(--white);
+      box-shadow: 0px 3px 10px 0 rgba(108, 108, 108, 0.1);
+      padding: 1.2rem 2.8rem;
+      color: #7d8b97; }
+      .editProfileForm__form__input--submit {
+        box-shadow: 0px 3px 10px 0 rgba(108, 108, 108, 0.1);
+        color: #20b5fc;
+        border: solid 4px #20b5fc;
+        background-color: #ffffff;
+        padding: .2rem 5.25rem; }
+  .editProfileForm__Green {
+    color: #7fe28d; }
+  .editProfileForm__badge {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.2rem;
+    height: 15rem;
+    overflow-y: scroll; }
+    .editProfileForm__badge * {
+      padding-left: .4rem; }
+    .editProfileForm__badge__entry {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 2px solid #d4d8dc;
+      padding: 1.25rem 0; }
+      .editProfileForm__badge__entry__name {
+        text-decoration: none;
+        color: inherit; }
+        .editProfileForm__badge__entry__name:hover {
+          text-decoration: underline; }
+        .editProfileForm__badge__entry__name:visited {
+          color: inherit; }
+      .editProfileForm__badge__entry__typeOfTrade {
+        text-decoration: underline; }
+      .editProfileForm__badge__entry__currencyToTrade {
+        font-weight: bold;
+        color: #000; }
