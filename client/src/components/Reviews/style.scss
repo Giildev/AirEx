@@ -1,0 +1,61 @@
+.review {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-top: 3.75rem;
+	width: 36.25rem;
+
+	&__title{
+			color: #20b5fc;
+			border-bottom: 2px solid #20b5fc;
+			font-size: 2.75rem;
+			width: 29.125rem;
+			
+	}
+	&__Upvote{
+		color: #7fe28d;
+		font-weight: bold;
+	}
+	&__Downvote{
+		color: #fa3163;
+		font-weight: bold;			
+	}
+	&__badge {
+		*{
+			padding-left: .4rem;
+		}
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		font-size: 1.2rem;
+		height: 15rem;
+		overflow-y: scroll;
+		margin-bottom: 3.75rem;
+		&__entry {
+			display: flex;
+			flex-direction: column;
+			height: 10.625rem;
+			margin: 1.25rem 0;
+			&__name {
+				text-decoration: none;
+				color: #273d51;
+				text-decoration: underline;
+				&:hover {
+					text-decoration: underline;
+				}
+				&:visited {
+					color: inherit;
+				}
+			}
+
+			&__typeOfTrade {
+				text-decoration: underline;
+			}
+
+			&__currencyToTrade {
+				color: #273d51;
+			}
+		}
+	}
+}
+  

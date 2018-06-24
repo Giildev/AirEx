@@ -1,0 +1,12 @@
+.profile{
+    display: flex;
+    
+    &__left{
+        width: 42vw;
+        height: 100%;
+    }
+    &__center{
+        width: 50vw;
+        height: 100%;        
+    }
+}

@@ -1,0 +1,32 @@
+.profileData{
+    padding: 8.4rem 13.75rem;
+    font-size: 1.5rem;
+    color: #273d51;
+    
+    &__avatar{
+        text-align: center;
+        &__prop {
+            height: 10rem;
+            width: auto;
+            border-radius: 10rem;
+        }
+        &__percentage{
+			color: #7fe28d;
+	    }
+    }
+    &__list{
+        padding: 0.625rem 0;
+        text-align: center;
+        &__entry{
+            list-style-type: none;
+            margin: 2.2rem 0;
+        }
+
+    }
+    &__edit{
+        text-decoration: underline;
+        font-weight: bolder;
+        text-align: center;
+        font-size: 1.4rem;
+    }
+}

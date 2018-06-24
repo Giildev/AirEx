@@ -7,6 +7,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Home from "./containers/Home";
 import Login from "./containers/Login";
+import Profile from "./containers/Profile";
 
 class App extends Component {
   render() {
@@ -19,6 +20,11 @@ class App extends Component {
             exact
             path={process.env.PUBLIC_URL + "/login"}
             component={Login}
+          />
+          <Route
+            exact
+            path={process.env.PUBLIC_URL + "/profile"}
+            component={Profile}
           />
         </div>
       </Router>
