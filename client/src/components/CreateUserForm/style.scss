@@ -1,0 +1,74 @@
+.createUserForm {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-top: 17rem;
+	&__title {
+		color: #20b5fc;
+		text-align: center;
+		font-size: 3rem; 
+	}
+	&__form{
+		width: 100%;
+		text-align: center;
+		&__input {
+			width: 100%;
+			margin: 1.25rem 0;
+			border: none;
+			background-color: #ffffff;
+			background-color: var(--white);
+			box-shadow: 0px 3px 10px 0 rgba(108, 108, 108, 0.1);
+			padding: 1.2rem 2.8rem;
+			color: #7d8b97;
+			&--submit{
+				box-shadow: 0px 3px 10px 0 rgba(108, 108, 108, 0.1);
+				border: none;
+				background-color: #20b5fc;
+				color: #ffffff;
+				padding: 1rem 3.125rem;
+			}
+	}
+		}
+	&__Green{
+			color: #7fe28d;
+	}
+	&__badge {
+		*{
+			padding-left: .4rem;
+		}
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		font-size: 1.2rem;
+		height: 15rem;
+		overflow-y: scroll;
+		&__entry {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-bottom: 2px solid #d4d8dc;
+			padding: 1.25rem 0;
+
+			&__name {
+				text-decoration: none;
+				color: inherit;
+
+				&:hover {
+					text-decoration: underline;
+				}
+				&:visited {
+					color: inherit;
+				}
+			}
+
+			&__typeOfTrade {
+				text-decoration: underline;
+			}
+
+			&__currencyToTrade {
+				font-weight: bold;
+				color: #000;
+			}
+		}
+	}
+}

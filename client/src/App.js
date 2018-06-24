@@ -9,6 +9,7 @@ import Home from "./containers/Home";
 import Login from "./containers/Login";
 import Profile from "./containers/Profile";
 import EditProfile from "./containers/EditProfile";
+import CreateUser from "./containers/CreateUser";
 
 class App extends Component {
   render() {
@@ -31,6 +32,11 @@ class App extends Component {
             exact
             path={process.env.PUBLIC_URL + "/editprofile"}
             component={EditProfile}
+          />
+          <Route
+            exact
+            path={process.env.PUBLIC_URL + "/createuser"}
+            component={CreateUser}
           />
         </div>
       </Router>

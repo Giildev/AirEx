@@ -1,0 +1,6 @@
+.createUser {
+  display: flex;
+  justify-content: center; }
+  .createUser__center {
+    width: 51.5vw;
+    height: 100%; }
