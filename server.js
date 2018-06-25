@@ -80,10 +80,9 @@ router.post("/login", (req, res) => {
 
 router.get("/profile/:userId", (req, res) => {
   User.findById(req.params.userId, (err, user) => {
-    if(!err) {
+    if (!err) {
       res.send(user);
-    }
-    else{
+    } else {
       console.log("User not found");
     }
   });
@@ -91,8 +90,7 @@ router.get("/profile/:userId", (req, res) => {
 
 router.put("/user/edit/:userId", (req, res) => {
   User.findById(req.params.userId, (err, user) => {
-    if(!err) {
-      
+    if (!err) {
       user.name = req.body.name;
       user.lastName = req.body.lastName;
       user.email = req.body.email;
@@ -103,14 +101,11 @@ router.put("/user/edit/:userId", (req, res) => {
         if (err) res.send(err);
         res.send({ message: "updated user!", user });
       });
-
-    }
-    else{
+    } else {
       console.log("User not found");
     }
   });
 });
-
 
 router.post("/logout/:userId", (req, res) => {
   User.findById(req.params.userId, (err, user) => {
